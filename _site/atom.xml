@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>OpenGenderTracking</title>
+ <link href="http://opengendertracking.github.com/atom.xml" rel="self"/>
+ <link href="http://opengendertracking.github.com"/>
+ <updated>2013-01-02T13:45:20-05:00</updated>
+ <id>http://opengendertracking.github.com</id>
+ <author>
+   <name>Irene Ros</name>
+   <email>irene at bocoup</email>
+ </author>
+
+ 
+ <entry>
+   <title>Getting Started</title>
+   <link href="http://opengendertracking.github.com/history/2013/01/04/Getting-Started"/>
+   <updated>2013-01-04T00:00:00-05:00</updated>
+   <id>http://opengendertracking.github.com/history/2013/01/04/Getting-Started</id>
+   <content type="html">&lt;p&gt;Many months ago, the &lt;a href='http://www.knightfoundation.org/'&gt;Knight Foundation&lt;/a&gt; announced their &lt;a href='http://newschallenge.tumblr.com/post/31922109780/winners-of-news-challenge-data'&gt;3rd News Challenge&lt;/a&gt;, themed around Data. Like many others, I was excited to submit my proposal about &lt;a href='newschallenge2.tumblr.com/post/25423069820/gendertracker-shrinking-the-news-gender-gap'&gt;tracking gender balance&lt;/a&gt; in news content. This wonderful idea was not of my making though.&lt;/p&gt;
+
+&lt;p&gt;I started thinking about authorship in general several years ago. During my time at IBM Research&amp;#8217;s &lt;a href='http://thevcl.com'&gt;Visual Communication Lab&lt;/a&gt;, I built &lt;a href='http://nytwrites.thevcl.com/'&gt;NYTWrites&lt;/a&gt;, a visualization tool to explore the topics written about by journalists at the New York Times. It was an interesting look at whether journalists need to be focused to write for such a publication. This left me even more curious about the people behind the news.&lt;/p&gt;
+
+&lt;p&gt;Years later, I got the opportunity to meet &lt;a href='http://natematias.com/'&gt;Nathan Matias&lt;/a&gt; from the MIT Center for Civic Media who began working on ways to measure the gender balance of news content computationally. From looking at byline author gender to pronouns, Nathan produced some results comparing three major publications: &lt;a href='http://www.dailymail.co.uk'&gt;The Daily Mail&lt;/a&gt;, &lt;a href='www.telegraph.co.uk'&gt;The Telegraph&lt;/a&gt; and &lt;a href='http://guardian.co.uk'&gt;The Guardian&lt;/a&gt; in this &lt;a href='http://www.guardian.co.uk/news/datablog/2012/sep/07/gender-media-best-data-available'&gt;data blog post&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;After speaking to Nathan, I wanted to help his mission, and bring the ability to computationally measure gender balance to a wider array of publications. With Nathan&amp;#8217;s help, as well as the generous help of the Knight Foundation&amp;#8217;s Prototype Fund, we are going to explore what a system like this might look like.&lt;/p&gt;
+
+&lt;p&gt;Stay tuned for our next post on the many ways in which gender blance is being tracked at present in journalism.&lt;/p&gt;</content>
+ </entry>
+ 
+ 
+</feed>
