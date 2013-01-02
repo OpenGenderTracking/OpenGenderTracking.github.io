@@ -1,6 +1,7 @@
 <div class="page-header">
-  
-  <img src="/assets/images/logo.jpg" align="left" style="margin-right: 15px" />
+  {% if page.show_logo == true %}
+    <img src="/assets/images/logo.jpg" align="left" style="margin-right: 15px" />
+  {% endif %}
   <h1>{{ page.title }} {% if page.tagline %} <br/><small>{{ page.tagline }}</small>{% endif %}</h1>
 </div>
 

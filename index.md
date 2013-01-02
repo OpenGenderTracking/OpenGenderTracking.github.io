@@ -1,5 +1,6 @@
 ---
 layout: page
+show_logo: true
 title: OpenGenderTracking Project
 tagline: Tracking Gender Balance in News Content
 ---

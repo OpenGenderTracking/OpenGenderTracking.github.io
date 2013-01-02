@@ -6,6 +6,7 @@ http://opengendertracking.github.com/categories.html
 http://opengendertracking.github.com/contact.html
 http://opengendertracking.github.com/index.html
 http://opengendertracking.github.com/pages.html
+http://opengendertracking.github.com/resources.html
 http://opengendertracking.github.com/sitemap.txt
 http://opengendertracking.github.com/tags.html
 
