@@ -9,4 +9,4 @@ http://opengendertracking.github.com/pages.html
 http://opengendertracking.github.com/sitemap.txt
 http://opengendertracking.github.com/tags.html
 
-http://opengendertracking.github.com/history/2013/01/04/Getting-Started
+http://opengendertracking.github.com/blog/2013/01/04/Getting-Started

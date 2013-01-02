@@ -1,7 +1,7 @@
 ---
 layout: post
-category : history
-tags : [about]
+category : blog
+tags : [about, history]
 author: Irene Ros
 ---
 

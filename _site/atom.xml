@@ -4,7 +4,7 @@
  <title>OpenGenderTracking</title>
  <link href="http://opengendertracking.github.com/atom.xml" rel="self"/>
  <link href="http://opengendertracking.github.com"/>
- <updated>2013-01-02T13:45:20-05:00</updated>
+ <updated>2013-01-02T14:07:24-05:00</updated>
  <id>http://opengendertracking.github.com</id>
  <author>
    <name>Irene Ros</name>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>Getting Started</title>
-   <link href="http://opengendertracking.github.com/history/2013/01/04/Getting-Started"/>
+   <link href="http://opengendertracking.github.com/blog/2013/01/04/Getting-Started"/>
    <updated>2013-01-04T00:00:00-05:00</updated>
-   <id>http://opengendertracking.github.com/history/2013/01/04/Getting-Started</id>
+   <id>http://opengendertracking.github.com/blog/2013/01/04/Getting-Started</id>
    <content type="html">&lt;p&gt;Many months ago, the &lt;a href='http://www.knightfoundation.org/'&gt;Knight Foundation&lt;/a&gt; announced their &lt;a href='http://newschallenge.tumblr.com/post/31922109780/winners-of-news-challenge-data'&gt;3rd News Challenge&lt;/a&gt;, themed around Data. Like many others, I was excited to submit my proposal about &lt;a href='newschallenge2.tumblr.com/post/25423069820/gendertracker-shrinking-the-news-gender-gap'&gt;tracking gender balance&lt;/a&gt; in news content. This wonderful idea was not of my making though.&lt;/p&gt;
 
 &lt;p&gt;I started thinking about authorship in general several years ago. During my time at IBM Research&amp;#8217;s &lt;a href='http://thevcl.com'&gt;Visual Communication Lab&lt;/a&gt;, I built &lt;a href='http://nytwrites.thevcl.com/'&gt;NYTWrites&lt;/a&gt;, a visualization tool to explore the topics written about by journalists at the New York Times. It was an interesting look at whether journalists need to be focused to write for such a publication. This left me even more curious about the people behind the news.&lt;/p&gt;
