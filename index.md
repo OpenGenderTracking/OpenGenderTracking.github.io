@@ -2,7 +2,7 @@
 layout: page
 show_logo: true
 title: OpenGenderTracking Project
-tagline: Tracking Gender Balance in News Content
+tagline: Computationally Tracking Gender Balance in News Content
 ---
 {% include JB/setup %}
 
