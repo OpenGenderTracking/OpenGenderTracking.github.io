@@ -7,7 +7,7 @@ author: J. Nathan Matias
 
 {% include JB/setup %}
 
-<a href="http://www.flickr.com/photos/natematias/8330858942/" title="Women's writing in UK Newspapers by rubberpaw, on Flickr"><img src="http://farm9.staticflickr.com/8491/8330858942_1438e48a6f_n.jpg" width="320" height="213" alt="Women's writing in UK Newspapers"></a>
+<div align="center"><a href="http://www.flickr.com/photos/natematias/8330858942/" title="Women's writing in UK Newspapers by rubberpaw, on Flickr"><img src="http://farm9.staticflickr.com/8491/8330858942_1438e48a6f.jpg" width="500" height="333" alt="Women's writing in UK Newspapers"></a></div>
 
 Open Gender Tracker is an upcoming suite of open source tools and APIs that will make it easy for news developers and others to conduct gender metrics and apply the resulting insights to what they do. Through a Knight Foundation Prototype grant, Irene Ros of Bocoup will be collaborating with me to make open source software out of my research on gender and get it into newsrooms ([more history here](/blog/2013/01/04/Getting-Started/)).
 
