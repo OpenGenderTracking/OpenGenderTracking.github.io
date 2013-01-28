@@ -15,7 +15,7 @@ html, body {
 /* The white background content wrapper */
 .content {
   background-color: #fff;
-  padding: 20px;
+  padding: 40px;
   margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
   -webkit-border-radius: 0 0 6px 6px;
      -moz-border-radius: 0 0 6px 6px;
@@ -28,8 +28,8 @@ html, body {
 /* Page header tweaks */
 .page-header {
   background-color: #f5f5f5;
-  padding: 20px 20px 10px;
-  margin: -20px -20px 20px;
+  padding: 30px 30px 10px;
+  margin: -40px -40px 20px;
 }
 
 .topbar .btn {
@@ -39,6 +39,18 @@ html, body {
 .knight-about {
   margin-left: 318px; 
   color: #777;
+}
+
+@media (min-width: 1200px) { 
+
+	.span12, .container {
+		width: 940px;
+	}
+
+	.row {
+		margin-left: 0;
+	}
+
 }
 
 @media (max-width: 979px) {
