@@ -41,14 +41,6 @@ html, body {
   color: #777;
 }
 
-@media (max-width: 1200px) { 
-
-	.span12, .container {
-		width: 940px;
-	}
-
-}
-
 @media (max-width: 979px) {
   
   .knight-logo {
