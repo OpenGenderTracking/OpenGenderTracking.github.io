@@ -15,20 +15,18 @@ Our speaker <a href="http://twitter.com/therealprotonk">Adam Hyland</a> is an ec
 
 We usually do dataviz, Adam reminds us. to carry out a purpose: develop a narrative, inform a decision, or to bring clarity to a problem. The world is a complex place, and we often try to provide clarity. Datavisualisation brings us in contact with that complexity and that clarity.
 
-Adam shows us the Enliven Project's visualization of false rape accusations. What makes it effective? It shows potential number of underreported rapes, the reported rapes, the number of people who faced trial, and the number of people convicted and jailed for rape. When <a href="http://www.slate.com/blogs/xx_factor/2013/01/08/the_enliven_project_s_false_rape_accusations_infographic_great_intentions.html">Slate complained that it was wrong</a>, they defended themselves with what Adam calls a "point estimate." They looked at the range of reputable estimates, thought about it, and picked a dot in the middle. This was an okay choice, but it wasn't an actual reported datapoint -- they used a model to decide the number to pick, and they didn't illustrate that uncertainty.
+Adam shows us the Enliven Project's visualization of false rape accusations. What makes it effective? It shows potential number of underreported rapes, the reported rapes, the number of people who faced trial, and the number of people convicted and jailed for rape. When <a href="http://www.slate.com/blogs/xx_factor/2013/01/08/the_enliven_project_s_false_rape_accusations_infographic_great_intentions.html">Slate complained that it was wrong</a>, they defended themselves with what Adam calls a "point estimate." Enliven had looked at the range of reputable estimates, thought about it, and picked a dot in the middle. This was an okay choice, but it wasn't an actual reported datapoint. Enliven had effectively a model to decide the number to pick, and they didn't illustrate the uncertainty in their model at all.
 
-How can we do this? Adam assures us that none of us are going to leave satisfied with his answer. 
-
-Where do we handle uncertainty in visualization well? The sciences do it well because they have dealt with statistical methodologies for a century and a half (going back to the Fisher Brewery or Gauss). Financial forecasters are also good at this, because their money depends on the quality of the visualisation. 
+How can we do a better job? Adam assures us that none of us are going to leave satisfied with his answer. One place to start is to ask where people handle uncertainty in visualization. The sciences do it well because they have dealt with statistical methodologies for a century and a half (going back to the <a href="http://www.umass.edu/wsp/statistics/tales/gosset.html">Gosset's work for Guiness</a> or maybe <a href="https://en.wikipedia.org/wiki/Normal_distribution">Gauss</a>). Financial forecasters are also good at this, because their money depends on the quality of the visualisation. 
 
 <div align="center"><iframe width="480" height="360" src="http://www.kickstarter.com/projects/jackadam/dark-sky-hyperlocal-weather-prediction-and-visuali/widget/video.html" frameborder="0"> </iframe></div>
 
-Next, Adam shows us Dark Sky, an iphone weather forecasting app. Weather is an incredibly difficult thing to predict. The signals we get are noisy-- doppler radar is far from clean-- and the models are far from rock solid. Here's <a href="http://journal.darkskyapp.com/2012/how-dark-sky-calculates-temperature/">how Dark Sky calculates temperature</a>.
+Next, Adam shows us <a href="http://darkskyapp.com/">Dark Sky</a>, an iphone weather forecasting app. Weather is an incredibly difficult thing to predict. The signals we get are noisy-- doppler radar is far from clean-- and the models are far from rock solid. Here's <a href="http://journal.darkskyapp.com/2012/how-dark-sky-calculates-temperature/">how Dark Sky calculates temperature</a>.
 
-We can't rely on scientists to tell us how to visualize uncertainty, Adam tells us, because scientists use highly specialised techniques to convey information to their peers. Adam shows us an incredibly complicated scientific dashboard and tries to show how confusing it is. He's successful. As my brain melts, I'm tragically stuck in the middle of a row, unable to reach the pizza table for a power-up.
+We can't rely on scientists to tell us how to visualize uncertainty, Adam tells us, because scientists use highly specialised techniques to convey information to their professional peers. They're little help if we care about communicating with a general audience. Adam shows us an incredibly complicated scientific dashboard and tries to show how confusing it is. He's successful. As my brain melts, I'm tragically stuck in the middle of a row, unable to reach the pizza table for a power-up.
 
 <strong>What is Uncertainty?</strong>
-Adam tells us about three kinds of uncertainty. Stochastic uncertainty happens when you have an uncontrolled dataset and have to reason about it. Model uncertainty, often called model error, occurs when you have reasoning about relationships in your data. You may think that two things are correlated, but a lurking third variable may trip you up. We have the best visual language for the third category, uncertainty about the future.
+Adam tells us about three kinds of uncertainty. <strong>Stochastic uncertainty</strong> happens when you have an uncontrolled dataset and have to reason about it. <strong>Model uncertainty</strong>, often called model error, occurs when you have reasoning about relationships in your data. You may think that two things are correlated, but a lurking third variable may trip you up. We have the best visual language for the third category, <strong>uncertainty about the future</strong>.
 
 Stochastic uncertainty occurs when we have dispersion in our data, if we're drawing from a sample. Adam shows us an opinion poll from the Milwaukie Journal-Sentinel. The chart shows the margin of error at the bottom of the chart. This is the standard presentation for single opinion polls, and it's incredibly hard to know if the poll supports the conclusion. Even the error margin doesn't include all of the uncertainty within a model.
 
@@ -60,21 +58,19 @@ Adam points to a variety of other approaches of visualizing uncertainty: <a href
 
 <div align="center"><a href="http://www.flickr.com/photos/natematias/8475156054/" title="US Gun Deaths by natematias, on Flickr"><img src="http://farm9.staticflickr.com/8234/8475156054_3b7c327837_n.jpg" width="320" height="134" alt="US Gun Deaths"></a></div>
 
-The tension between clear answers and uncertainty isn't one we can solve tonight. What we can do as designers is try to contribute to the visual language of uncertainty. Adam shows us a visualization of <a href="http://guns.periscopic.com/">US Gun Killings</a>, which tries to line up life expectancy with aggregate data about gun deaths, creating a persona for each datapoint.
-
-Is it okay to present fictional personas? Adam thinks this kind of artistic license is acceptable when you're aiming for impact.
+The tension between clear answers and uncertainty isn't one we can solve tonight. What we can do as designers is try to contribute to the visual language of uncertainty. Adam shows us a visualization of <a href="http://guns.periscopic.com/">US Gun Killings</a>, which tries to line up life expectancy with aggregate data about gun deaths, creating a persona for each datapoint. Is it okay to present fictional personas? Adam thinks this kind of artistic license is acceptable when you're aiming for impact.
 
 <strong>Model Uncertainty</strong>
 Adam shows us a chart of the traffic received by a podcast. Then he shows us the messy data used to create that chart. We often think that the "web request" is a single thing, but for something like a podcast, a single request is created from many requests. The line graph is not a good representation of the data that comes in. Adam shows us a graph of "the long tail of multi-part requests."
 
-(insert photo here)
+<div align="center"><img width="400" src="http://i.imgur.com/Nd9ezLHl.jpg"/></div>
 
 <strong>Forecast</strong>
 Adam shows us Amanda Cox's remarkable 2010 project on <a href="http://www.nytimes.com/interactive/2010/02/02/us/politics/20100201-budget-porcupine-graphic.html">US Budget Forecasts, Compare with Reality</a>. This is cheating, he says, because none of us has access to a time machine. Nevertheless, it's a great illustration of the challenges of showing forecast confidence.
 
 "Timeseries models of confidence get very complex very quickly and are way beyond my pay grade," Adam tells us. One approach involves showing error bars. Another involves "bootstrapping," running the models many many times and showing all of the outcomes.
 
-What can we as designers do? Adam wraps up by encouraging us to push the visual language. If we use more and more box plots, maybe we can expand public visual literacies of uncertainty.
+When visualising uncertainty, there aren't any easy tricks. Adam wraps up by encouraging us to push the visual language. One way to do that is to use more and more box plots, to can expand public visual literacies of uncertainty. Another way is to continue asking these questions, finding new and creative ways to present uncertainty clearly. Finally, we should talk about it more often-- finding, sharing, critiquing, and praising each others' work.
 
 An <strong>addendum</strong>: in the discussion, Lynn Cherney points us to <a href="http://www.r-bloggers.com/visually-weighted-regression-in-r-a-la-solomon-hsiang/">a beautiful post on  visually-weighted regression on the R-Bloggers site</a>.
 
