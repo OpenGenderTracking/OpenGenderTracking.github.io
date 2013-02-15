@@ -1,7 +1,7 @@
 ---
 layout: post
 category : blog
-tags : [about, history, dataviz]
+tags : [dataviz]
 author: J. Nathan Matias
 ---
 {% include JB/setup %}
