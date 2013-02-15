@@ -11,7 +11,7 @@ How can we visualize uncertainty? Adam Hyland's topic today is a great question 
 
 <div align="center"><a href="http://xkcd.com/55/"><img src="http://imgs.xkcd.com/comics/useless.jpg"/></a></div>
 
-<a href="http://twitter.com/therealprotonk">Adam Hyland</a> is an economist and software developer based out of Boston. He has been working with R since 2010 and when he isn't writing software, he's also a Wikipedia editor. Adam is also a collaborator of mine, via Bocoup, on <a href="http://opengendertracking.org/">Open Gender Tracker</a>.
+Our speaker <a href="http://twitter.com/therealprotonk">Adam Hyland</a> is an economist and software developer based out of Boston. He has been working with R since 2010 and when he isn't writing software, he's also a Wikipedia editor. Adam is also a collaborator of mine, via Bocoup, on <a href="http://opengendertracking.org/">Open Gender Tracker</a>.
 
 We usually do dataviz, Adam reminds us. to carry out a purpose: develop a narrative, inform a decision, or to bring clarity to a problem. The world is a complex place, and we often try to provide clarity. Datavisualisation brings us in contact with that complexity and that clarity.
 
@@ -76,6 +76,6 @@ Adam shows us Amanda Cox's remarkable 2010 project on <a href="http://www.nytime
 
 What can we as designers do? Adam wraps up by encouraging us to push the visual language. If we use more and more box plots, maybe we can expand public visual literacies of uncertainty.
 
-<strong>addendum</strong>: in the discussion, Lynn Cherney points us to <a href="http://www.r-bloggers.com/visually-weighted-regression-in-r-a-la-solomon-hsiang/">a beautiful post on  visually-weighted regression on the R-Bloggers site</a>.
+An <strong>addendum</strong>: in the discussion, Lynn Cherney points us to <a href="http://www.r-bloggers.com/visually-weighted-regression-in-r-a-la-solomon-hsiang/">a beautiful post on  visually-weighted regression on the R-Bloggers site</a>.
 
 <div align="center"><img src="http://www.nicebread.de/WP/wp-content/uploads/2012/08/Bildschirmfoto-2012-08-30-um-10.25.52.jpg"/></div>
