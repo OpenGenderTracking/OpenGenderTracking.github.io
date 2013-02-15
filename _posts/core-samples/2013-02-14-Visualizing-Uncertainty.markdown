@@ -1,3 +1,12 @@
+---
+layout: post
+category : blog
+tags : [about, history, dataviz]
+author: Nathan Matias
+---
+
+{% include JB/setup %}
+
 How can we visualize uncertainty? Adam Hyland's topic today is a great question for this Valentine's Day meeting of the <a href="http://www.meetup.com/bostondatavis/events/100199592/">Boston Dataviz group</a>, organised by <a href="http://twitter.com/ireneros">Irene Ros</a> of Bocoup. Irene opens us up by encouraging us to submit talk ideas to the Boston DataVis Community Talks on March 27th. You can <a href="http://bit.ly/bostonvistalks">submit your talk idea here</a>. She also encourages us to register for the <a href="http://openvisconf.com">OpenVisConf</a>. Merlin Calo invites us to <a href="http://www.meetup.com/html5boston/">HTML5 Boston</a>.
 
 <div align="center"><a href="http://xkcd.com/55/"><img src="http://imgs.xkcd.com/comics/useless.jpg"/></a></div>
