@@ -4,13 +4,46 @@
  <title>OpenGenderTracking</title>
  <link href="http://opengendertracking.github.com/atom.xml" rel="self"/>
  <link href="http://opengendertracking.github.com"/>
- <updated>2013-01-04T15:21:18-05:00</updated>
+ <updated>2013-02-12T14:12:01-05:00</updated>
  <id>http://opengendertracking.github.com</id>
  <author>
    <name>Irene Ros</name>
    <email>irene at bocoup</email>
  </author>
 
+ 
+ <entry>
+   <title>Tracking Gender In Online News</title>
+   <link href="http://opengendertracking.github.com/blog/2013/01/08/Tracking-Gender-In-Online-News"/>
+   <updated>2013-01-08T00:00:00-05:00</updated>
+   <id>http://opengendertracking.github.com/blog/2013/01/08/Tracking-Gender-In-Online-News</id>
+   <content type="html">&lt;div align='center'&gt;&lt;a href='http://www.flickr.com/photos/natematias/8330858942/' title='Women&amp;apos;s writing in UK Newspapers by rubberpaw, on Flickr'&gt;&lt;img alt='Women&amp;apos;s writing in UK Newspapers' height='333' src='http://farm9.staticflickr.com/8491/8330858942_1438e48a6f.jpg' width='500' /&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;p&gt;Open Gender Tracker is an upcoming suite of open source tools and APIs that will make it easy for newrooms and media monitors to collect metrics and gain a better understanding of gender diversity in their publications. Through a Knight Foundation Prototype grant, Irene Ros of Bocoup will be collaborating with me to make open source software out of my research on gender and get it into newsrooms (&lt;a href='/blog/2013/01/04/Getting-Started/'&gt;more history here&lt;/a&gt;).&lt;/p&gt;
+
+&lt;h2 id='understanding_gender_in_online_news'&gt;Understanding Gender in Online News&lt;/h2&gt;
+
+&lt;p&gt;Many news organisations and editors want to share diverse voices with their readers. Editorial sections benefit from a variety of voices; journalists want to find the stories they&amp;#8217;re missing. News organisations want to represent issues fairly, to foster a healthy public sphere, and attract a diverse readership.&lt;/p&gt;
+
+&lt;p&gt;Most news organisations don&amp;#8217;t have gender data beyond employment. Groups like &lt;a href='http://theopedproject.wordpress.com/'&gt;The Op Ed Project&lt;/a&gt;, &lt;a href='http://vidaweb.org/'&gt;Vida Women in Literary Arts&lt;/a&gt;, the &lt;a href='http://whomakesthenews.org'&gt;Global Media Monitoring Project&lt;/a&gt;, and many others conduct infrequent, sampled studies of gender in the media. These studies tend to foster lively debate about gender in the news, but they&amp;#8217;re usually not detailed or fast enough to provide actionable feedback within the fast news cycles that drive what happens in a paper.&lt;/p&gt;
+
+&lt;p&gt;Newspapers themselves have a shrinking influence on who gets heard in society, as they participate in a broader diversity of networked gatekeepers. Andrew Sullivan recently &lt;a href='http://mediadecoder.blogs.nytimes.com/2013/01/04/andrew-sullivan-on-going-back-to-future-as-an-indie-blogger/'&gt;ended his relationship with The Daily Beast&lt;/a&gt; to go solo. Anita Sarkeesian &lt;a href='http://www.kickstarter.com/projects/566429325/tropes-vs-women-in-video-games/posts/245217'&gt;raised $158,000&lt;/a&gt; to write a series on women and videogames. Within papers, the front page is declining in importance. Content curators, from Maria Popova to Reddit, are driving massive amounts of traffic to individual articles. &lt;a href='http://www.currybet.net/cbet_blog/2012/03/guardian-facebook-google-traffic.php'&gt;Social media may soon pass Google&lt;/a&gt; as the top source of traffic for some newsrooms. In many cases, algorithms rather than editors now choose what we see on whatever equivalent of the front page we experience.&lt;/p&gt;
+
+&lt;p&gt;In this crazy online world, it&amp;#8217;s no longer enough to count bylines. If we want to understand gender representation in our time, we need ways to measure this complex ecosystem of players, going beyond who&amp;#8217;s writing to understand who&amp;#8217;s speaking and who&amp;#8217;s sharing.&lt;/p&gt;
+
+&lt;h2 id='measuring_gender_online'&gt;Measuring Gender Online&lt;/h2&gt;
+
+&lt;p&gt;Over the summer, I worked with Lisa Evans at the Guardian Datablog to &lt;a href='http://www.guardian.co.uk/news/datablog/2012/oct/23/women-media-representation-online-news'&gt;analyze gender across an entire year of UK news&lt;/a&gt;. We wanted to see how closely reader&amp;#8217;s likes and shares on social media matched the percentage of content by men and women in different sections of UK newspapers. While news was shared in similar proportions, we saw substantial differences between the social media performance of men and women&amp;#8217;s writing in other parts of the paper (&lt;a href='http://natematias.com/medialab/uknews-gender'&gt;click for our interactive infographic&lt;/a&gt;, and &lt;a href='http://civic.mit.edu/blog/natematias/data-science-for-gender-equality-monitoring-womens-voices-in-the-news'&gt;click here to read how we did it&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;Open Gender Tracker will make this kind of analysis easy and automated. It&amp;#8217;s a straightforward analytics system that takes in a news API or RSS feed and produces gender data about who&amp;#8217;s writing, who&amp;#8217;s being written about, and who&amp;#8217;s being quoted. It will work for a single article as well as thousands of articles at a time.&lt;/p&gt;
+
+&lt;h2 id='making_sense_of_gender_data'&gt;Making Sense of Gender Data&lt;/h2&gt;
+
+&lt;p&gt;The data produced by Open Gender Tracker will become useful when combined with other information. Over the next few weeks, we&amp;#8217;re going to create a regular gender report for the Boston Globe by combining our gender data with some of the Globe&amp;#8217;s internal reporting. We&amp;#8217;re also going to plug Open Gender Tracker together with projects like &lt;a href='http://source.mozillaopennews.org/en-US/code/amo/'&gt;Amo&lt;/a&gt;, which aggregates social media metrics for any URL. I&amp;#8217;m especially excited about the possibility of mashing up content gender data with audience gender data to gain insight into how content by and about women is received by news audiences.&lt;/p&gt;
+
+&lt;h2 id='work_with_us'&gt;Work With Us!&lt;/h2&gt;
+
+&lt;p&gt;Would you like to use Open Gender Tracker? Do you have an idea for how your newsroom or organisation can make sense of gender data? Contact Irene ros at irene at bocoup.com&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Getting Started</title>

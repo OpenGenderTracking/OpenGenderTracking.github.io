@@ -10,4 +10,5 @@ http://opengendertracking.github.com/resources.html
 http://opengendertracking.github.com/sitemap.txt
 http://opengendertracking.github.com/tags.html
 
+http://opengendertracking.github.com/blog/2013/01/08/Tracking-Gender-In-Online-News
 http://opengendertracking.github.com/blog/2013/01/04/Getting-Started
