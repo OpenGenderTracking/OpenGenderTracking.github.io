@@ -3,6 +3,7 @@ layout: post
 category : blog
 tags : [about, history]
 author: Irene Ros
+title: GenderTracker Makes an Appearance
 ---
 
 {% include JB/setup %}
