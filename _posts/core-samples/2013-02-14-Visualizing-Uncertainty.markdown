@@ -72,6 +72,6 @@ Adam shows us Amanda Cox's remarkable 2010 project on <a href="http://www.nytime
 
 When visualising uncertainty, there aren't any easy tricks. Adam wraps up by encouraging us to push the visual language. One way to do that is to use more and more box plots, to can expand public visual literacies of uncertainty. Another way is to continue asking these questions, finding new and creative ways to present uncertainty clearly. Finally, we should talk about it more often-- finding, sharing, critiquing, and praising each others' work.
 
-An <strong>addendum</strong>: in the discussion, Lynn Cherney points us to <a href="http://www.r-bloggers.com/visually-weighted-regression-in-r-a-la-solomon-hsiang/">a beautiful post on  visually-weighted regression on the R-Bloggers site</a>.
+An <strong>addendum</strong>: in the discussion, <a href="http://twitter.com/arnicas">Lynn Cherny</a> points us to <a href="http://www.r-bloggers.com/visually-weighted-regression-in-r-a-la-solomon-hsiang/">a beautiful post on  visually-weighted regression on the R-Bloggers site</a>.
 
 <div align="center"><img src="http://www.nicebread.de/WP/wp-content/uploads/2012/08/Bildschirmfoto-2012-08-30-um-10.25.52.jpg"/></div>
