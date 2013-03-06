@@ -18,4 +18,4 @@ You can find us on github at <a href="https://github.com/opengendertracking">git
 
 ## Who
 
-The system will be built by <a href="mailto: irene at bocoup.com">Irene Ros</a> and <a href="http://bocoup.com">Bocoup</a> in collaboration with <a href="http://natematias.com/">Nathan Matias</a> of the <a href="http://civic.mit.edu/">MIT Center for Civic Media</a>.
+OpenGenderTracker is a project by <a href="mailto: irene at bocoup.com">Irene Ros</a> and <a href="mailto:achyland at bocoup.com">Adam Hyland</a> from <a href="http://bocoup.com">Bocoup</a> in collaboration with <a href="http://natematias.com/">Nathan Matias</a> of the <a href="http://civic.mit.edu/">MIT Center for Civic Media</a>.
