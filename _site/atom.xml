@@ -4,7 +4,7 @@
  <title>OpenGenderTracking</title>
  <link href="http://opengendertracking.github.com/atom.xml" rel="self"/>
  <link href="http://opengendertracking.github.com"/>
- <updated>2013-02-12T14:12:01-05:00</updated>
+ <updated>2013-03-14T14:22:39-04:00</updated>
  <id>http://opengendertracking.github.com</id>
  <author>
    <name>Irene Ros</name>
@@ -13,11 +13,139 @@
 
  
  <entry>
+   <title>GenderTracker Makes an Appearance</title>
+   <link href="http://opengendertracking.github.com/blog/2013/02/27/GenderTracker-Makes-an-Appearance"/>
+   <updated>2013-02-27T00:00:00-05:00</updated>
+   <id>http://opengendertracking.github.com/blog/2013/02/27/GenderTracker-Makes-an-Appearance</id>
+   <content type="html">&lt;p&gt;Things have been busy here at OpenGenderTracker central. We&amp;#8217;ve been working away on the core &lt;a href='http://github.com/opengendertracking/gendertracker'&gt;genderTracker system&lt;/a&gt; as well as two separate trial applications with our friends at &lt;a href='http://globalvoicesonline.org'&gt;Global Voices&lt;/a&gt; and the &lt;a href='http://bostonglobe.com/'&gt;Boston Globe&lt;/a&gt;. We will be writing more about these trials in the comming weeks, but we figured it was time to introduce you to the main beast - the GenderTracker server.&lt;/p&gt;
+
+&lt;p&gt;The GenderTracker system is a single server that can be run on your local machine or on a virtual machine in the cloud. It is a ruby application that relies on &lt;a href='redis.io'&gt;redis&lt;/a&gt;, a very versatile and fast key-value store, to be the messaging layer by which a client can communicate with the server. There are pretty detailed dependency and setup instructions in the &lt;a href='https://github.com/OpenGenderTracking/GenderTracker/blob/master/README.md'&gt;README.md&lt;/a&gt;, but we wanted to take a minute and talk about how the system works overall.&lt;/p&gt;
+
+&lt;h2 id='the_data'&gt;The Data&lt;/h2&gt;
+
+&lt;p&gt;GenderTracker knows of the existance of two types of elements: &lt;code&gt;Jobs&lt;/code&gt; and &lt;code&gt;Articles&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;A &lt;code&gt;Job&lt;/code&gt; is merely a specific grouping for articles. In your client you can choose to group articles as you see fit and GenderTracker just allows you to process articles under the umbrella of a &lt;code&gt;job&lt;/code&gt;. A &lt;code&gt;job&lt;/code&gt; may, for example, be a search query of your own data that returns a subset of articles. That&amp;#8217;s very similiar to what we&amp;#8217;re doing with the Boston Globe API.&lt;/p&gt;
+
+&lt;p&gt;An &lt;code&gt;Article&lt;/code&gt; is a specific json format that describes a piece of text content using our pre-defined format. This is the beauty of GenderTracker - you can bring in content from your news organization or any other source as long as you first convert it to our predefined format. An &lt;code&gt;article&lt;/code&gt; looks like this:&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='json'&gt;&lt;span class='p'&gt;{&lt;/span&gt;
+  &lt;span class='nt'&gt;&amp;quot;url&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;&amp;lt;Article url&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
+  &lt;span class='nt'&gt;&amp;quot;id&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;&amp;lt;Unique ID&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
+  &lt;span class='nt'&gt;&amp;quot;body&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;&amp;lt;Body of text&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
+  &lt;span class='nt'&gt;&amp;quot;original_body&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;&amp;lt;Body of text as originally captured&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
+  &lt;span class='nt'&gt;&amp;quot;title&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;&amp;lt;Article title&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
+  &lt;span class='nt'&gt;&amp;quot;byline&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;&amp;lt;Author name&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
+  &lt;span class='nt'&gt;&amp;quot;pub_date&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;&amp;lt;Publication Date&amp;gt;&amp;quot;&lt;/span&gt;
+&lt;span class='p'&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;You&amp;#8217;re welcome to add your own properties beyond the ones we require too, if it makes sense. GenderTracker will just ignore them.&lt;/p&gt;
+
+&lt;h2 id='the_flow'&gt;The Flow&lt;/h2&gt;
+
+&lt;p&gt;Once your articles are in the proper form, you can start piping them into GenderTracker to be processed. What do we mean by piping? We&amp;#8217;ll explain that in a minute. First, lets talk about how one interfaces with GenderTracker in general:&lt;/p&gt;
+
+&lt;p&gt;GenderTracker expects your first request to be for a new job. Requesting a new job merely assigns you a custom ID that we know will be unique to the GenderTracker server. You can imagine it having to process hundreds of different jobs and so this way, we can guarantee yours will be uniquely identified.&lt;/p&gt;
+
+&lt;p&gt;Once a new job has been allocated for you, you can start sending in your articles for processing. GenderTracker can handle articles by accepting either file paths to those articles (at which point those files need to be readable and writeable on the file system,) or the json structure we defined above.&lt;/p&gt;
+&lt;img src='/assets/images/flow_diagram.png' /&gt;
+&lt;p&gt;When GenderTracker recieves your article, it does a few things:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;It tokenizes it - it takes the body of the article and splits it into separate words that we will then use to compute various metrics. GenderTracker does not destroy any of the original information you sent in, but it will write new properties.&lt;/li&gt;
+
+&lt;li&gt;It calculates gender balance based on the availale metric types. At present, GenderTracker looks at the byline author gender (by comparing against a baby name dictionary) and the pronoun counts in the article that can be directly associated with one gender or another. While this is a very modest beginning, GenderTracker was built explicitly with the intent of extending the number of metrics we are able to compute with minimal changes to the code. You can see the current Metrics that are implemented &lt;a href='https://github.com/OpenGenderTracking/GenderTracker/tree/master/src/metrics'&gt;on github&lt;/a&gt;. Which ones would YOU add?!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id='the_results'&gt;The Results&lt;/h2&gt;
+
+&lt;p&gt;At the end of the day, while GenderTracker computes the various metrics available for you, it doesn&amp;#8217;t make a call as to whether the article leans one way or the other. We leave it to you to decide whether based on the results, an article is, or isn&amp;#8217;t, appropriatly balanced for your context.&lt;/p&gt;
+
+&lt;p&gt;For every available metric, a score will be produced and appended to the article structure under a &lt;code&gt;metrics&lt;/code&gt; section like so:&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='json'&gt;&lt;span class='p'&gt;{&lt;/span&gt;
+  &lt;span class='nt'&gt;&amp;quot;url&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;&amp;lt;Article url&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
+  &lt;span class='nt'&gt;&amp;quot;id&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;&amp;lt;Unique ID&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
+  &lt;span class='nt'&gt;&amp;quot;body&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;&amp;lt;Body of text&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
+  &lt;span class='nt'&gt;&amp;quot;original_body&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;&amp;lt;Body of text as originally captured&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
+  &lt;span class='nt'&gt;&amp;quot;title&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;&amp;lt;Article title&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
+  &lt;span class='nt'&gt;&amp;quot;byline&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;&amp;lt;Author name&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
+  &lt;span class='nt'&gt;&amp;quot;pub_date&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;&amp;lt;Publication Date&amp;gt;&amp;quot;&lt;/span&gt;
+  &lt;span class='err'&gt;...&lt;/span&gt;
+  &lt;span class='s2'&gt;&amp;quot;metrics&amp;quot;&lt;/span&gt; &lt;span class='p'&gt;:&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
+    &lt;span class='nt'&gt;&amp;quot;nameOfMetric&amp;quot;&lt;/span&gt; &lt;span class='p'&gt;:&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
+      &lt;span class='nt'&gt;&amp;quot;result&amp;quot;&lt;/span&gt; &lt;span class='p'&gt;:&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;Female|Male|Both|Unknown&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
+      &lt;span class='nt'&gt;&amp;quot;otherRelevantParams...&amp;quot;&lt;/span&gt; &lt;span class='p'&gt;:&lt;/span&gt; &lt;span class='p'&gt;{}&lt;/span&gt;
+    &lt;span class='p'&gt;}&lt;/span&gt;
+  &lt;span class='p'&gt;}&lt;/span&gt;
+&lt;span class='p'&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;You can see a sample processed article &lt;a href='https://gist.github.com/iros/5048653'&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We are very excited to share GenderTracker with the community. We&amp;#8217;re thinking very hard about how to evaluate the content we recieve as well as how to make it incredibly easy to integrate into existing environments. Stay tuned for a detailed dive into the exciting data and findings from our friends at GlobalVoices.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Visualizing Uncertainty</title>
+   <link href="http://opengendertracking.github.com/blog/2013/02/14/Visualizing-Uncertainty"/>
+   <updated>2013-02-14T00:00:00-05:00</updated>
+   <id>http://opengendertracking.github.com/blog/2013/02/14/Visualizing-Uncertainty</id>
+   <content type="html">&lt;p&gt;How can we visualize uncertainty? Adam Hyland&amp;#8217;s topic today is a great question for this Valentine&amp;#8217;s Day meeting of the &lt;a href='http://www.meetup.com/bostondatavis/events/100199592/'&gt;Boston Dataviz group&lt;/a&gt;, organised by &lt;a href='http://twitter.com/ireneros'&gt;Irene Ros&lt;/a&gt; of Bocoup. Irene opens us up by encouraging us to submit talk ideas to the Boston DataVis Community Talks on March 27th. You can &lt;a href='http://bit.ly/bostonvistalks'&gt;submit your talk idea here&lt;/a&gt;. She also encourages us to register for the &lt;a href='http://openvisconf.com'&gt;OpenVisConf&lt;/a&gt;. Merlin Calo invites us to &lt;a href='http://www.meetup.com/html5boston/'&gt;HTML5 Boston&lt;/a&gt;.&lt;/p&gt;
+&lt;div align='center'&gt;&lt;a href='http://xkcd.com/55/'&gt;&lt;img src='http://imgs.xkcd.com/comics/useless.jpg' /&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;p&gt;Our speaker &lt;a href='http://twitter.com/therealprotonk'&gt;Adam Hyland&lt;/a&gt; is an economist and software developer based out of Boston. He has been working with R since 2010 and when he isn&amp;#8217;t writing software, he&amp;#8217;s also a Wikipedia editor. Adam is also a collaborator of mine, via Bocoup, on &lt;a href='http://opengendertracking.org/'&gt;Open Gender Tracker&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We usually do dataviz, Adam reminds us. to carry out a purpose: develop a narrative, inform a decision, or to bring clarity to a problem. The world is a complex place, and we often try to provide clarity. Datavisualisation brings us in contact with that complexity and that clarity.&lt;/p&gt;
+
+&lt;p&gt;Adam shows us the Enliven Project&amp;#8217;s visualization of false rape accusations. What makes it effective? It shows potential number of underreported rapes, the reported rapes, the number of people who faced trial, and the number of people convicted and jailed for rape. When &lt;a href='http://www.slate.com/blogs/xx_factor/2013/01/08/the_enliven_project_s_false_rape_accusations_infographic_great_intentions.html'&gt;Slate complained that it was wrong&lt;/a&gt;, they defended themselves with what Adam calls a &amp;#8220;point estimate.&amp;#8221; Enliven had looked at the range of reputable estimates, thought about it, and picked a dot in the middle. This was an okay choice, but it wasn&amp;#8217;t an actual reported datapoint. Enliven had effectively a model to decide the number to pick, and they didn&amp;#8217;t illustrate the uncertainty in their model at all.&lt;/p&gt;
+
+&lt;p&gt;How can we do a better job? Adam assures us that none of us are going to leave satisfied with his answer. One place to start is to ask where people handle uncertainty in visualization. The sciences do it well because they have dealt with statistical methodologies for a century and a half (going back to the &lt;a href='http://www.umass.edu/wsp/statistics/tales/gosset.html'&gt;Gosset's work for Guiness&lt;/a&gt; or maybe &lt;a href='https://en.wikipedia.org/wiki/Normal_distribution'&gt;Gauss&lt;/a&gt;). Financial forecasters are also good at this, because their money depends on the quality of the visualisation.&lt;/p&gt;
+&lt;div align='center'&gt;&lt;iframe frameborder='0' height='360' src='http://www.kickstarter.com/projects/jackadam/dark-sky-hyperlocal-weather-prediction-and-visuali/widget/video.html' width='480'&gt; &lt;/iframe&gt;&lt;/div&gt;
+&lt;p&gt;Next, Adam shows us &lt;a href='http://darkskyapp.com/'&gt;Dark Sky&lt;/a&gt;, an iphone weather forecasting app. Weather is an incredibly difficult thing to predict. The signals we get are noisy&amp;#8211; doppler radar is far from clean&amp;#8211; and the models are far from rock solid. Here&amp;#8217;s &lt;a href='http://journal.darkskyapp.com/2012/how-dark-sky-calculates-temperature/'&gt;how Dark Sky calculates temperature&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We can&amp;#8217;t rely on scientists to tell us how to visualize uncertainty, Adam tells us, because scientists use highly specialised techniques to convey information to their professional peers. They&amp;#8217;re little help if we care about communicating with a general audience. Adam shows us an incredibly complicated scientific dashboard and tries to show how confusing it is. He&amp;#8217;s successful. As my brain melts, I&amp;#8217;m tragically stuck in the middle of a row, unable to reach the pizza table for a power-up.&lt;/p&gt;
+&lt;strong&gt;What is Uncertainty?&lt;/strong&gt;
+&lt;p&gt;Adam tells us about three kinds of uncertainty. &lt;strong&gt;Stochastic uncertainty&lt;/strong&gt; happens when you have an uncontrolled dataset and have to reason about it. &lt;strong&gt;Model uncertainty&lt;/strong&gt;, often called model error, occurs when you have reasoning about relationships in your data. You may think that two things are correlated, but a lurking third variable may trip you up. We have the best visual language for the third category, &lt;strong&gt;uncertainty about the future&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Stochastic uncertainty occurs when we have dispersion in our data, if we&amp;#8217;re drawing from a sample. Adam shows us an opinion poll from the Milwaukie Journal-Sentinel. The chart shows the margin of error at the bottom of the chart. This is the standard presentation for single opinion polls, and it&amp;#8217;s incredibly hard to know if the poll supports the conclusion. Even the error margin doesn&amp;#8217;t include all of the uncertainty within a model.&lt;/p&gt;
+&lt;div align='center'&gt;&lt;a href='http://elections.huffingtonpost.com/pollster/obama-favorable-rating'&gt;&lt;img src='http://www.niemanlab.org/images/pollscreenshot.png' /&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;p&gt;Adam shows us &lt;a href='http://www.niemanlab.org/2012/07/huffington-post-puts-polling-power-in-the-hands-of-developers-with-new-api/'&gt;the Huffington Post Pollster API&lt;/a&gt;, which shows a regression line across a large number of opinion polls. By showing the individual datapoints, HuffPo shows us the dispersion in the data. The regression line also helps reader infer estimates. What&amp;#8217;s bad about it?&lt;/p&gt;
+
+&lt;p&gt;Political stats writer &lt;a href='https://twitter.com/fivethirtyeight'&gt;Nate Silver&lt;/a&gt; shows uncertainty really well. Nate was an economics student at the University of Chicago who went into consulting and also did analysis of baseball games. Nate blew away everyone else during the 2008 primary and was recently bought by the New York Times. Nate shows the variation over time and from state to state. Nate repeats his models thousands and thousands of times and shows the distribution of possible outcomes across thousands of runs. His technique doesn&amp;#8217;t give you a confidence interval.&lt;/p&gt;
+
+&lt;p&gt;Not all of us have control over the models we&amp;#8217;re using. How can we think about stochastic uncertainty? Adam starts by showing us &lt;a href='http://en.wikipedia.org/wiki/Box_plot'&gt;boxplots&lt;/a&gt;, a one-dimensional measurement of the dispersion of data which shows the dispersion of most of the data. By convention, R also shows datapoints which fall outside of the box. Boxplots are especially good because they&amp;#8217;re mostly distribution agnostic.&lt;/p&gt;
+&lt;div align='center'&gt;&lt;img src='http://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Boxplot_vs_PDF.svg/500px-Boxplot_vs_PDF.svg.png' /&gt;&lt;/div&gt;
+&lt;p&gt;Adam next shows us a &lt;a href='http://en.wikipedia.org/wiki/Violin_plot'&gt;violin plot&lt;/a&gt;, &amp;#8220;two-dimensional &lt;a href='http://en.wikipedia.org/wiki/Kernel_density_estimation'&gt;kernel density&lt;/a&gt; estimators.&amp;#8221; If you cut a violin plot in half and lay it on its side, you see the shape of the distribution.&lt;/p&gt;
+&lt;div align='center'&gt;&lt;img src='http://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Violin_plot.gif/621px-Violin_plot.gif' /&gt;&lt;/div&gt;
+&lt;p&gt;Adam reflects again on the Huffington Post poll API plot and shows us a boxplot version of the Obama favorability ratings. His version makes the time difference in distribution much clearer. (sorry, I didn&amp;#8217;t get a photo)&lt;/p&gt;
+
+&lt;p&gt;Does this actually tell us more about uncertainty? The opposite of good statistics isn&amp;#8217;t no statistics, it&amp;#8217;s bad statistics, he tells us. When making estimations, we should pick and appropriate estimator and be able to show how we do it.&lt;/p&gt;
+
+&lt;p&gt;We might object that we&amp;#8217;re not modelers. Adam argues that we&amp;#8217;re always making judgments and shows us &lt;a href='http://en.wikipedia.org/wiki/Anscombe&amp;apos;s_quartet'&gt;Anscombe's quartet&lt;/a&gt;, four datasets that are identical when examined using simple summary statistics: mean, variance, correlation, and linear regression.&lt;/p&gt;
+&lt;div align='center'&gt;&lt;img src='http://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Anscombe%27s_quartet_3.svg/500px-Anscombe%27s_quartet_3.svg.png' /&gt;&lt;/div&gt;
+&lt;p&gt;If we&amp;#8217;re not careful when creating data visualizations, Adam tells us, we can end up with very very unhelpful results.&lt;/p&gt;
+
+&lt;p&gt;Adam points to a variety of other approaches of visualizing uncertainty: &lt;a href='http://en.wikipedia.org/wiki/Contour_line'&gt;contour plots&lt;/a&gt; and &lt;a href='http://en.wikipedia.org/wiki/Carpet_plot'&gt;rug plots&lt;/a&gt;. These techniques, unfortunately, make it very hard to present a clear answer.&lt;/p&gt;
+&lt;div align='center'&gt;&lt;a href='http://www.flickr.com/photos/natematias/8475156054/' title='US Gun Deaths by natematias, on Flickr'&gt;&lt;img alt='US Gun Deaths' height='134' src='http://farm9.staticflickr.com/8234/8475156054_3b7c327837_n.jpg' width='320' /&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;p&gt;The tension between clear answers and uncertainty isn&amp;#8217;t one we can solve tonight. What we can do as designers is try to contribute to the visual language of uncertainty. Adam shows us a visualization of &lt;a href='http://guns.periscopic.com/'&gt;US Gun Killings&lt;/a&gt;, which tries to line up life expectancy with aggregate data about gun deaths, creating a persona for each datapoint. Is it okay to present fictional personas? Adam thinks this kind of artistic license is acceptable when you&amp;#8217;re aiming for impact.&lt;/p&gt;
+&lt;strong&gt;Model Uncertainty&lt;/strong&gt;
+&lt;p&gt;Adam shows us a chart of the traffic received by a podcast. Then he shows us the messy data used to create that chart. We often think that the &amp;#8220;web request&amp;#8221; is a single thing, but for something like a podcast, a single request is created from many requests. The line graph is not a good representation of the data that comes in. Adam shows us a graph of &amp;#8220;the long tail of multi-part requests.&amp;#8221;&lt;/p&gt;
+&lt;div align='center'&gt;&lt;img src='http://i.imgur.com/Nd9ezLHl.jpg' width='400' /&gt;&lt;/div&gt;&lt;strong&gt;Forecast&lt;/strong&gt;
+&lt;p&gt;Adam shows us Amanda Cox&amp;#8217;s remarkable 2010 project on &lt;a href='http://www.nytimes.com/interactive/2010/02/02/us/politics/20100201-budget-porcupine-graphic.html'&gt;US Budget Forecasts, Compare with Reality&lt;/a&gt;. This is cheating, he says, because none of us has access to a time machine. Nevertheless, it&amp;#8217;s a great illustration of the challenges of showing forecast confidence.&lt;/p&gt;
+
+&lt;p&gt;&amp;#8220;Timeseries models of confidence get very complex very quickly and are way beyond my pay grade,&amp;#8221; Adam tells us. One approach involves showing error bars. Another involves &amp;#8220;bootstrapping,&amp;#8221; running the models many many times and showing all of the outcomes.&lt;/p&gt;
+
+&lt;p&gt;When visualising uncertainty, there aren&amp;#8217;t any easy tricks. Adam wraps up by encouraging us to push the visual language. One way to do that is to use more and more box plots, to can expand public visual literacies of uncertainty. Another way is to continue asking these questions, finding new and creative ways to present uncertainty clearly. Finally, we should talk about it more often&amp;#8211; finding, sharing, critiquing, and praising each others&amp;#8217; work.&lt;/p&gt;
+
+&lt;p&gt;An &lt;strong&gt;addendum&lt;/strong&gt;: in the discussion, &lt;a href='http://twitter.com/arnicas'&gt;Lynn Cherny&lt;/a&gt; points us to &lt;a href='http://www.r-bloggers.com/visually-weighted-regression-in-r-a-la-solomon-hsiang/'&gt;a beautiful post on  visually-weighted regression on the R-Bloggers site&lt;/a&gt;.&lt;/p&gt;
+&lt;div align='center'&gt;&lt;img src='http://www.nicebread.de/WP/wp-content/uploads/2012/08/Bildschirmfoto-2012-08-30-um-10.25.52.jpg' /&gt;&lt;/div&gt;</content>
+ </entry>
+ 
+ <entry>
    <title>Tracking Gender In Online News</title>
    <link href="http://opengendertracking.github.com/blog/2013/01/08/Tracking-Gender-In-Online-News"/>
    <updated>2013-01-08T00:00:00-05:00</updated>
    <id>http://opengendertracking.github.com/blog/2013/01/08/Tracking-Gender-In-Online-News</id>
-   <content type="html">&lt;div align='center'&gt;&lt;a href='http://www.flickr.com/photos/natematias/8330858942/' title='Women&amp;apos;s writing in UK Newspapers by rubberpaw, on Flickr'&gt;&lt;img alt='Women&amp;apos;s writing in UK Newspapers' height='333' src='http://farm9.staticflickr.com/8491/8330858942_1438e48a6f.jpg' width='500' /&gt;&lt;/a&gt;&lt;/div&gt;
+   <content type="html">&lt;div align='center'&gt;&lt;a href='http://www.flickr.com/photos/natematias/8330858942/' title='Women&amp;apos;s writing in UK Newspapers by rubberpaw, on Flickr'&gt;&lt;img alt='Women&amp;apos;s writing in UK Newspapers' src='http://farm9.staticflickr.com/8491/8330858942_bbcb420b20_o.png' /&gt;&lt;/a&gt;&lt;/div&gt;
 &lt;p&gt;Open Gender Tracker is an upcoming suite of open source tools and APIs that will make it easy for newrooms and media monitors to collect metrics and gain a better understanding of gender diversity in their publications. Through a Knight Foundation Prototype grant, Irene Ros of Bocoup will be collaborating with me to make open source software out of my research on gender and get it into newsrooms (&lt;a href='/blog/2013/01/04/Getting-Started/'&gt;more history here&lt;/a&gt;).&lt;/p&gt;
 
 &lt;h2 id='understanding_gender_in_online_news'&gt;Understanding Gender in Online News&lt;/h2&gt;
