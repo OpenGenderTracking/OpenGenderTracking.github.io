@@ -14,11 +14,12 @@ layout: page
 </div>
 <br>
 {{ first_post.content }}
+<div class="secondary-footer">
+  <div style="float:left">
+    <a href="{{ first_post.url }}">Comments</a>
+  </div>
 
-<div style="float:left">
-  <a href="{{ first_post.url }}">Comments</a>
-</div>
-
-<div style="float:right">
-  <a href="/archive.html">Read previous posts here...</a>
+  <div style="float:right">
+    <a href="/archive.html">Read previous posts here</a>
+  </div>
 </div>

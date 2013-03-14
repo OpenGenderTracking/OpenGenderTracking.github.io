@@ -28,11 +28,11 @@ Usage:
   
     {% if forloop.first %}
       <h2>{{this_year}}</h2>
-      <h3>{{this_month}}</h3>
-      <ul>
+      <h3 class="month">{{this_month}}</h3>
+      <ul class="archive">
     {% endif %}
   
-    <li><span>{{ post.date | date: "%B %e, %Y" }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
+    <li><p><span>{{ post.date | date: "%B %e, %Y" }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></p></li>
   
     {% if forloop.last %}
       </ul>
@@ -41,12 +41,12 @@ Usage:
         </ul>
         <h2>{{next_year}}</h2>
         <h3>{{next_month}}</h3>
-        <ul>
+        <ul class="archive">
       {% else %}    
         {% if this_month != next_month %}
           </ul>
-          <h3>{{next_month}}</h3>
-          <ul>
+          <h3 class="month">{{next_month}}</h3>
+          <ul class="archive">
         {% endif %}
       {% endif %}
     {% endif %}
