@@ -46,7 +46,7 @@ Usage:
         {% if this_month != next_month %}
           </ul>
           <h3 class="month">{{next_month}}</h3>
-          <ul class="archive">
+          <ul class="archive" style="margin-bottom:15em;">
         {% endif %}
       {% endif %}
     {% endif %}
