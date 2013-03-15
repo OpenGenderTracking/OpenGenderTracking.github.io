@@ -27,7 +27,7 @@
   
   </head>
 
-  <body>
+  <body class="{{ page.title }}">
     <div class="navbar">
       <div class="navbar-inner" role="custom-dropdown">
         {% assign pages_list = site.pages %}
@@ -35,10 +35,10 @@
         <input type="checkbox" id="button">
         <label for="button" onclick=""></label>
         <ul class="nav">  
-          <li> <a href="{{ HOME_PATH }}">Home</a></li>
-          <li> <a href="/about.html">About</a></li>
-          <li> <a href="/archive.html">Archive</a></li>
-          <li> <a href="/resources.html">Resources</a></li>
+          <li> <a class="home" href="{{ HOME_PATH }}">Home</a></li>
+          <li> <a class="about" href="/about.html">About</a></li>
+          <li> <a class="archive" href="/archive.html">Archive</a></li>
+          <li> <a class="resources" href="/resources.html">Resources</a></li>
         </ul>
       </div>
     </div>

@@ -81,6 +81,14 @@ p {
   left: -9999px;
 }
 
+.navbar .nav>li>a.home, .About .navbar .nav>li>a.about,  .Archive .navbar .nav>li>a.archive, .Resources .navbar .nav>li>a.resources{
+  color: #7eafd7;
+}
+
+.About .navbar .nav>li>a.home,  .Archive .navbar .nav>li>a.home, .Resources .navbar .nav>li>a.home {
+  color: white;
+}
+
 .container > footer {
   margin-top: 20px;
 }
