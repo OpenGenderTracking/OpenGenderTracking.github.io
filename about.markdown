@@ -20,7 +20,7 @@ The OpenGenderTracking project aims to build software that assists with analyzin
 
 <div class="bocoup-info-container">
   <div class="bocoup-info">
-    <a class="logo" href="http://bocoup.com/" target="_blank"><img style="padding: 0 18px 20px 0" src="/assets/images/bocoup-logo.jpg" alt="Bocoup Logo" width="180"></a>
+    <a class="logo" href="http://bocoup.com/" target="_blank"><img src="/assets/images/bocoup-logo.jpg" alt="Bocoup Logo" width="180"></a>
     <p><b>Bocoup</b> moves the Open Web forward by building and supporting tomorrow's Open Web technologies through consulting, training, and community development.</p>
   </div>
 </div>
