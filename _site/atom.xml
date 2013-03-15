@@ -4,7 +4,7 @@
  <title>OpenGenderTracking</title>
  <link href="http://opengendertracking.github.com/atom.xml" rel="self"/>
  <link href="http://opengendertracking.github.com"/>
- <updated>2013-03-15T14:46:28-04:00</updated>
+ <updated>2013-03-15T15:10:54-04:00</updated>
  <id>http://opengendertracking.github.com</id>
  <author>
    <name>Irene Ros</name>
@@ -37,8 +37,7 @@
   &lt;span class='nt'&gt;&amp;quot;byline&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;&amp;lt;Author name&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
   &lt;span class='nt'&gt;&amp;quot;pub_date&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;&amp;lt;Publication Date&amp;gt;&amp;quot;&lt;/span&gt;
 &lt;span class='p'&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;You&amp;#8217;re welcome to add your own properties beyond the ones we require too, if it makes sense. GenderTracker will just ignore them.&lt;/p&gt;
 
 &lt;h2 id='the_flow'&gt;The Flow&lt;/h2&gt;
@@ -78,8 +77,7 @@
     &lt;span class='p'&gt;}&lt;/span&gt;
   &lt;span class='p'&gt;}&lt;/span&gt;
 &lt;span class='p'&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;You can see a sample processed article &lt;a href='https://gist.github.com/iros/5048653'&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;We are very excited to share GenderTracker with the community. We&amp;#8217;re thinking very hard about how to evaluate the content we recieve as well as how to make it incredibly easy to integrate into existing environments. Stay tuned for a detailed dive into the exciting data and findings from our friends at GlobalVoices.&lt;/p&gt;</content>
