@@ -24,35 +24,44 @@
     <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
   -->
+    <link href='http://fonts.googleapis.com/css?family=Russo+One' rel='stylesheet' type='text/css'>
+  
   </head>
 
   <body>
     <div class="navbar">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="brand" href="/">OpenGenderTracking</a>
-          <ul class="nav">
-            
-            
-            <li> <a href="/about.html">About</a></li>
-            <li> <a href="/archive.html">Archive</a></li>
-            <li> <a href="/resources.html">Resources</a></li>
-            <li> <a href="/contact.html">Contact</a></li>
-          </ul>
-        </div>
+      <div class="navbar-inner" role="custom-dropdown">
+        
+        
+        <input type="checkbox" id="button">
+        <label for="button" onclick=""></label>
+        <ul class="nav">  
+          <li> <a href="/">Home</a></li>
+          <li> <a href="/about.html">About</a></li>
+          <li> <a href="/archive.html">Archive</a></li>
+          <li> <a href="/resources.html">Resources</a></li>
+        </ul>
       </div>
+    </div>
+
+    <div class="page-header">
+      <a href="/" class="logo">
+          <div class="icon"><img src="/assets/images/logo.png"/></div>
+        <div class="name">
+          <div class="title">OpenGenderTracking Project</div>
+          <div class="tagline">Computationally Tracking Gender Balance in News Content</div>
+        </div>
+      </a>
     </div>
 
     <div class="container">
 
       <div class="content">
         
-<div class="page-header">
-  
-  <h1>Categories </h1>
-</div>
-
 <div class="row">
+  
+    <h1 class="section-title">Categories</h1>
+  
   <div>
     
 
@@ -64,7 +73,7 @@
   
      
     	<li><a href="/categories.html#blog-ref">
-    		blog <span>2</span>
+    		blog <span>4</span>
     	</a></li>
     
   
@@ -80,6 +89,22 @@
     
 
 
+  
+    
+      
+      	
+      	<li><a href="/blog/2013/02/27/GenderTracker-Makes-an-Appearance">GenderTracker Makes an Appearance</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/blog/2013/02/14/Visualizing-Uncertainty">Visualizing Uncertainty</a></li>
+      	
+      
+    
   
     
       
@@ -108,37 +133,17 @@
 </div>
 
 
-
-        <hr>
-        <div>
-          <p class="knight-logo"><img style="padding-right:18px"src="/assets/images/knight-logo-300.jpg" alt="Knight Foundation Logo" align="left"></p>
-          <p class="knight-about">Generous support is provided by the Knight Foundation. Knight Foundation supports transformational ideas that promote quality journalism, advance media innovation, engage communities and foster the arts. The foundation believes that democracy thrives when people and communities are informed and engaged. For more, visit <a href="KnightFoundation.org">KnightFoundation.org</a>. The grant number for this grant is 2012-0284.
-          </p>
-        </div>
-
-        <hr>
-        <div class="brought-by">Brought to you by</div>
-        <div class="mit-info">
-          <a href="http://civic.mit.edu/" target="_blank"><img style="padding-right:18px"src="/assets/images/mit-logo.jpg" alt="MIT Ceter for Civic Media Logo" align="left" width="130"></a>
-          <p><b>The MIT Center for Civic Media</b> works hand in hand with diverse communities to collaboratively create, design, deploy, and assess civic media tools and practices.</p>
-        </div>
-
-        <div class="bocoup-info">
-          <a href="http://bocoup.com/" target="_blank"><img style="padding: 0 18px 20px 0"src="/assets/images/bocoup-logo.jpg" alt="Bocoup Logo" align="left" width="180"></a>
-          <p><b>Bocoup</b> moves the Open Web forward by building and supporting tomorrow's Open Web technologies through consulting, training, and community development.
-          </p>
-        </div>
-
       </div>
 
-      <footer>
-        <p>&copy; Irene Ros 2012 
-          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
-          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
-        </p>
-      </footer>
-
     </div> <!-- /container -->
+
+    <footer>
+      <p>
+        Brought to you by <a href="http://bocoup.com/">Bocoup</a> and the <a href="http://civic.mit.edu/">MIT Center for Civic Media</a> with generous support of the <a href="http://knightfoundation.org/">Knight Foundation</a>
+        | Find us on <a href="https://github.com/opengendertracking">Github</a>  
+      </p>
+
+    </footer>
 
     
   </body>

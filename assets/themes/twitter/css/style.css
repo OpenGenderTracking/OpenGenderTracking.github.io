@@ -2,12 +2,89 @@
 html, body {
   background-color: #eee;
 }
+
+body {
+  line-height: normal;
+  color: #454545;
+  -webkit-animation: bugfix infinite 1s;
+}
+
+@-webkit-keyframes bugfix { 
+  from {padding:0;} 
+  to {padding:0;} 
+}
+
+a {
+  color: #4486bb;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #3e78a7;
+}
+
+h2 {
+  margin: 1.5em 0 .3em;
+}
+
+p {
+  font-size: 1.05em;
+  line-height: 1.5em;
+}
+
 .navbar {
   margin-bottom: 0;
+  background: #333333;
 }
+
+.navbar-inner {
+  border-radius: 0;
+  margin: auto;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background: none;
+  text-align: center;
+  padding: 0;
+}
+
+.navbar .nav {
+  margin: 0 auto;
+  display: table;
+  float: none;
+  text-transform: uppercase;
+  font-weight: 200;
+  letter-spacing: .1em;
+}
+
+.navbar .nav>li {
+  margin: 0 5em;
+}
+
+.navbar .nav>li>a {
+  color: white;
+  padding: 1.1em;
+}
+
+.navbar .nav>li>a:hover {
+  color: #7eafd7;
+}
+
+.navbar label {
+  display: none;
+  cursor: pointer;
+  -webkit-user-select: none;
+}
+
+.navbar input[type=checkbox] {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
 .container > footer {
   margin-top: 20px;
 }
+
 .container > footer p {
   text-align: center; /* center align it with the container */
 }
@@ -15,85 +92,349 @@ html, body {
 /* The white background content wrapper */
 .content {
   background-color: #fff;
-  padding: 40px;
-  margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
-  -webkit-border-radius: 0 0 6px 6px;
-     -moz-border-radius: 0 0 6px 6px;
-          border-radius: 0 0 6px 6px;
-  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
-     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
-          box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  padding: 5em;
 }
+
+.row {
+  margin: 0;
+}
+
+.row .posted-by{
+  color: #C9C9C9;
+  text-transform: uppercase;
+  margin-bottom: 1.5em;
+  border-bottom: 2px solid #f5f5f5;
+  padding: .2em 0 .7em;
+}
+
+.row .section-title {
+  margin-bottom: 1em;
+  border-bottom: 2px solid #f5f5f5;
+  padding-bottom: .5em;
+}
+
+.month {
+  margin: 1.5em 0 .5em;
+}
+
+ul.archive {
+  list-style: none;
+  margin: 0;
+}
+
+ul.archive p {
+  line-height: 1.2em;
+}
+
 
 /* Page header tweaks */
 .page-header {
-  background-color: #f5f5f5;
-  padding: 30px 30px 10px;
-  margin: -40px -40px 20px;
+  background-image: url("/assets/images/header-bg.jpg");
+  background-position: center center;
+  background-position: fixed;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin: 0;
+  text-align: center;
+  padding: 0;
+}
+
+.page-header .logo {
+  margin: 3em 0;
+  display: inline-block;
+  text-align: left;
+  color: #333333
+}
+
+.page-header .logo .icon, .logo .name {
+  float: left;
+}
+
+.page-header .logo img {
+  margin-right: 15px;
+}
+
+.logo .name {
+  text-align: center;
+}
+
+.logo .icon {
+  text-align: center;
+}
+
+.logo .title {
+  font-size: 2.5em;
+  font-weight: bold;
+  font-family: 'Russo One', sans-serif;
+  margin-top: .3em;
+}
+
+.logo .tagline {
+  font-size: 1.12em;
+  text-transform: uppercase;
 }
 
 .topbar .btn {
   border: 0;
 }
 
-.knight-about {
-  margin-left: 318px; 
-  color: #777;
+.bocoup-info-container {
+  border-bottom: 2px solid #f5f5f5;
+  margin-bottom: 3em;
+  clear: both;
+  padding-top: 5em;
 }
 
-.brought-by {
-	text-align: center;
-	margin-bottom: 20px;
-	color: #777;
-	font-weight: bold;
-	font-size: 14px;
+.bocoup-info {
+  display: table;
+  width: 50%;
+  margin: 0 auto 1em;
+  clear: both;
 }
 
-.bocoup-info, .mit-info {
-	width: 47%;
+.bocoup-info .logo {
+  margin-bottom: 1em;
+}
+
+.knight-about a.logo, .mit-info a.logo, .bocoup-info a.logo {
+  display: block;
+  text-align: center;
+}
+
+.knight-about, .mit-info, .goals, .who {
+	width: 45%;
 	display: inline-block;
-	color: #777;
 }
 
-.mit-info {
-	padding-right: 2%;
-	margin-right: 2%;
-	float: left;
-	border-right: 1px solid #eee;
+.knight-about .logo, .mit-info .logo {
+  height: 100px;
+  line-height: 100px;
 }
 
-@media (min-width: 1200px) { 
+.knight-about .logo img {
+  margin-top: 45px;
+}
 
-	.span12, .container {
-		width: 940px;
-	}
+.knight-about, .goals {
+  float: left;
+}
 
-	.row {
-		margin-left: 0;
-	}
+.mit-info, .who {
+	float: right;
+}
+
+.secondary-footer {
+  display: inline-block;
+  width: 100%;
+  padding-top: 1em;
+  border-top: 2px solid #f5f5f5;
+  margin-top: 2em;
+}
+
+footer {
+  background: #333333;
+  text-align: center;
+}
+
+footer p {
+  margin: 0 auto;
+  padding: 1.4em;
+  color: white;
+  font-size: 1em;
+}
+
+@media (min-width: 980px) {
+  
+  .span12, .container, .navbar-inner {
+    width: 980px;
+  }
+}
+
+@media (max-width: 979px) and (min-width: 768px) {
+
+  .span12, .container, .navbar-inner {
+    width: 100%;
+  }
 
 }
 
 @media (max-width: 979px) {
-  
-  .knight-logo, .bocoup-info img, .mit-info img{
-    display: none;
+
+  .navbar .nav > li > a {
+    margin-bottom: 0px;
   }
-  .knight-about {
-    margin-left: 0; 
-    color: #777;
+
+  .navbar .nav > li > a:hover {
+    margin: 0;
+    background: none;
   }
 
 }
 
-@media (max-width: 480px) {
-  .navbar .brand {
-    float: none;
+@media (max-width: 876px) {
+
+  .navbar .nav>li {
+    margin: 0 3em;
   }
 
-  .bocoup-info, .mit-info {
-		width: 100%;
-	}
+}
+
+@media (max-width: 767px) {
+
+  .container {
+    padding: 0;
+  }
+
+}
+
+@media (max-width: 670px) { 
+
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.8em;
+    margin: 1em 0 .3em;
+  }
+
+  .navbar .nav>li {
+    margin: 0 1em;
+  }
+
+  .page-header .logo {
+    font-size: .7em;
+  }
+
+  .page-header .logo img {
+    width: 70%;
+    margin-right: 0;
+  }
+
+  .content  {
+    padding: 3em;
+  }
+
+  .knight-about, .goals, .who, .bocoup-info, .mit-info {
+    float: none;
+    width: 100%;
+    margin-bottom: 1em;
+  }
+
+  .bocoup-info-container {
+    padding-top: 0em;
+    margin: 2em 0;
+    border: none;
+  }
+
+  .knight-about .logo img {
+    margin-top: 0;
+  }
+
+  .knight-about .logo {
+    height: auto;
+    line-height: 30px;
+  }
+
+  .mit-info .logo {
+    height: 90px;
+  }
+
+}
+
+@media (max-width: 540px) {  
+
+  .content  {
+    padding: 2em;
+  }
+
+  .page-header .logo .icon, .page-header  .logo .name {
+    float: none;
+    display: table;
+    margin: auto;
+  }
+
+  .page-header .logo {
+    margin: 1.5em;
+  }
+
+  .navbar .nav {
+    display: none;
+  }
+
+  nav[role="custom-dropdown"] input[type=checkbox]:checked ~ ul > li {
+    width: 100%;
+    opacity: .8;
+    text-align: left;
+  }
+
+  .navbar label {
+    display: block;
+    min-height: 2.25em;
+    padding: .45em;
+    font-size: 1.1em;
+    margin: 0;
+  }
+
+  .navbar label:after {
+    background-image: url("/assets/images/menu-more.png");
+    content: '';
+    position: absolute;
+    right: .5em;
+    top: .5em;
+    font-size: 1.8em;
+    width: 23px;
+    height: 19px;
+  }
+
+  .navbar input[type=checkbox]:checked ~ label {
+    background: #2a2a2a;
+  }
+
+  .navbar input[type=checkbox]:checked ~ label:after {
+    opacity: .3;
+  }
+        
+  .navbar input[type=checkbox]:checked ~ ul {
+    display:block;
+  }
+
+  .navbar input[type=checkbox]:checked ~ ul li {
+    display:block;
+    width: 100%;
+    background: #333333;
+    text-align: left;
+    margin: 0;
+    border-bottom: 1px solid #262626;
+    border-top: 1px solid #4a4a4a;
+  }
+
+  .navbar input[type=checkbox]:checked ~ ul li a {
+    padding: .8em 1.5em;
+  }
+
+  .row .posted-by {
+    margin-bottom: .5em;
+  }
+
+}
+
+@media (max-width: 415px) {  
+
+  .name {
+    font-size: .8em;
+  }
+
+  .page-header .logo .tagline {
+    display: none; 
+  }
+
+  .page-header .logo img {
+    width: 60%; 
+  }
 
 }
 
@@ -129,4 +470,6 @@ html, body {
 	border:1px solid #4C964D;
 	color:#FFF;
 }
+
+  
 	
